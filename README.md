@@ -27,7 +27,7 @@ Built for **security professionals, bug bounty hunters, and researchers**, it pr
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/vapt-toolkit-installer.git
+git clone https://github.com/wintgod/vapt-toolkit-installer.git
 cd vapt-toolkit-installer
 chmod +x install.sh scripts/*.sh
 sudo ./install.sh
