@@ -29,8 +29,18 @@ Built for **security professionals, bug bounty hunters, and researchers**, it pr
 ```bash
 git clone https://github.com/YOUR_USERNAME/vapt-toolkit-installer.git
 cd vapt-toolkit-installer
-chmod +x install.sh uninstall.sh scripts/*.sh
+chmod +x install.sh scripts/*.sh
 sudo ./install.sh
+```
+
+---
+
+## 📦 Uninstallation
+
+```bash
+cd vapt-toolkit-installer
+chmod +x uninstall.sh 
+sudo ./uninstall.sh
 ```
 
 ---
