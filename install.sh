@@ -26,15 +26,22 @@ fi
 # GO INSTALL / UPDATE
 # -----------------------------
 install_go() {
-    log "Installing/Updating Go..."
+    echo "[+] Installing latest Go..."
 
     GO_VERSION=$(curl -s https://go.dev/VERSION?m=text | head -n 1)
-    wget -q https://go.dev/dl/${GO_VERSION}.linux-amd64.tar.gz
 
-    rm -rf /usr/local/go
-    tar -C /usr/local -xzf ${GO_VERSION}.linux-amd64.tar.gz
+    wget https://go.dev/dl/${GO_VERSION}.linux-amd64.tar.gz
 
-    export PATH=$PATH:/usr/local/go/bin
+    sudo rm -rf /usr/local/go
+    sudo tar -C /usr/local -xzf ${GO_VERSION}.linux-amd64.tar.gz
+
+    export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
+
+    if ! grep -q "/usr/local/go/bin" ~/.bashrc; then
+        echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin' >> ~/.bashrc
+    fi
+
+    rm ${GO_VERSION}.linux-amd64.tar.gz
 }
 
 # -----------------------------
@@ -117,14 +124,46 @@ for t in "${SKIPPED[@]}"; do log "  - $t"; done
 
 log "\n=========== VERIFY ==========="
 
-tools=(nmap sqlmap nuclei subfinder naabu gau waybackurls katana dalfox)
+verify_tool() {
+    TOOL_NAME=$1
+    TOOL_PATH=$2
 
-for tool in "${tools[@]}"; do
-    if command -v $tool >/dev/null; then
-        log "[✔] $tool OK"
+    if command -v "$TOOL_NAME" >/dev/null 2>&1; then
+        log "[✔] $TOOL_NAME installed (binary found)"
+    elif [ -n "$TOOL_PATH" ] && [ -d "$TOOL_PATH" ]; then
+        log "[✔] $TOOL_NAME installed (directory found)"
     else
-        log "[✘] $tool missing"
+        log "[✘] $TOOL_NAME missing"
     fi
-done
+}
 
-log "\nLog: $LOG_FILE"
+# APT / Go / Binary tools
+verify_tool "nmap" ""
+verify_tool "masscan" ""
+verify_tool "sqlmap" ""
+verify_tool "nuclei" ""
+verify_tool "subfinder" ""
+verify_tool "naabu" ""
+verify_tool "httpx" ""
+verify_tool "katana" ""
+verify_tool "gau" ""
+verify_tool "waybackurls" ""
+verify_tool "dalfox" ""
+verify_tool "qsreplace" ""
+verify_tool "unfurl" ""
+verify_tool "ffuf" ""
+verify_tool "amass" ""
+
+# Git-based tools
+verify_tool "XSStrike" "/opt/XSStrike"
+verify_tool "LinkFinder" "/opt/LinkFinder"
+verify_tool "jsleak" "/opt/jsleak"
+verify_tool "commix" "/opt/commix"
+verify_tool "crlfuzz" "/opt/crlfuzz"
+verify_tool "hakrawler" "/opt/hakrawler"
+
+# Wordlists
+verify_tool "SecLists" "/opt/SecLists"
+verify_tool "PayloadsAllTheThings" "/opt/PayloadsAllTheThings"
+
+log "\nLog saved at: $LOG_FILE"

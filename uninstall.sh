@@ -1,9 +1,58 @@
 #!/bin/bash
 
-echo "Removing toolkit..."
+echo "[+] Removing VAPT Toolkit..."
 
-rm -rf /opt/sqlmap /opt/XSStrike /opt/gf /opt/hakrawler
-rm -rf /opt/commix /opt/crlfuzz /opt/SecLists /opt/PayloadsAllTheThings
+# Remove Git-based tools
+sudo rm -rf \
+/opt/sqlmap \
+/opt/XSStrike \
+/opt/LinkFinder \
+/opt/jsleak \
+/opt/commix \
+/opt/crlfuzz \
+/opt/hakrawler \
+/opt/SecLists \
+/opt/PayloadsAllTheThings
+
+# Remove SQLMap symlink
+sudo rm -f /usr/local/bin/sqlmap
+
+# Remove Go binaries
+TOOLS=(
+nuclei
+subfinder
+naabu
+httpx
+katana
+gau
+waybackurls
+dalfox
+qsreplace
+unfurl
+ffuf
+)
+
+for tool in "${TOOLS[@]}"; do
+    sudo rm -f /usr/local/bin/$tool
+done
+
+# Remove Go installation
+sudo rm -rf /usr/local/go
 rm -rf ~/go
 
-echo "Done."
+# Remove apt packages
+sudo apt remove --purge -y nmap masscan amass
+
+# Remove snap packages
+if snap list | grep -q seclists; then
+    sudo snap remove seclists
+fi
+
+# Remove metasploit
+sudo apt remove --purge -y metasploit-framework 2>/dev/null
+
+# Cleanup
+sudo apt autoremove -y
+sudo apt clean
+
+echo "[✔] All toolkit components removed successfully"

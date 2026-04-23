@@ -35,7 +35,7 @@ update_go_tool() {
 
 move_go_bins() {
     if [ -d "$HOME/go/bin" ]; then
-        cp -n $HOME/go/bin/* /usr/local/bin/ 2>/dev/null
+        sudo cp "$HOME"/go/bin/* /usr/local/bin/ 2>/dev/null
     fi
 }
 
