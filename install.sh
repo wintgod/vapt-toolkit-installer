@@ -116,11 +116,19 @@ esac
 # -----------------------------
 log "\n=========== SUMMARY ==========="
 
-log "\n[+] Newly Installed:"
-for t in "${INSTALLED[@]}"; do log "  - $t"; done
+if [ ${#INSTALLED[@]} -gt 0 ]; then
+    log "\n[+] Newly Installed:"
+    printf '%s\n' "${INSTALLED[@]}" | tee -a "$LOG_FILE"
+else
+    log "\n[+] No new tools installed."
+fi
 
-log "\n[✔] Already Present:"
-for t in "${SKIPPED[@]}"; do log "  - $t"; done
+if [ ${#SKIPPED[@]} -gt 0 ]; then
+    log "\n[✔] Already Present:"
+    printf '%s\n' "${SKIPPED[@]}" | tee -a "$LOG_FILE"
+else
+    log "\n[✔] No tools were previously installed."
+fi
 
 log "\n=========== VERIFY ==========="
 
@@ -150,7 +158,6 @@ verify_tool "gau" ""
 verify_tool "waybackurls" ""
 verify_tool "dalfox" ""
 verify_tool "qsreplace" ""
-verify_tool "unfurl" ""
 verify_tool "ffuf" ""
 verify_tool "amass" ""
 

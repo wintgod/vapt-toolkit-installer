@@ -9,7 +9,8 @@ install_or_skip masscan "apt install -y masscan"
 
 # Parallel
 run_parallel_limited \
-"go install github.com/projectdiscovery/httpx/cmd/httpx@latest"
+"go install github.com/projectdiscovery/httpx/cmd/httpx@latest"\
+"go install github.com/ffuf/ffuf/v2@latest"
 
 # SQLMap
 if [ ! -d /opt/sqlmap ]; then

@@ -28,7 +28,6 @@ gau
 waybackurls
 dalfox
 qsreplace
-unfurl
 ffuf
 )
 

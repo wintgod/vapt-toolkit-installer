@@ -5,6 +5,9 @@ mkdir -p logs
 
 GREEN="\e[32m"; RED="\e[31m"; YELLOW="\e[33m"; END="\e[0m"
 
+declare -ag INSTALLED
+declare -ag SKIPPED
+
 INSTALLED=()
 SKIPPED=()
 
