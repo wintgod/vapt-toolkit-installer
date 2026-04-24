@@ -35,13 +35,65 @@ sudo ./install.sh
 
 ---
 
-## 📂 Installation Demo
+## 📂 Installed Tool List
 
+ ### 🔍 Recon & Enumeration
+- Nmap
+- Masscan
+- Subfinder
+- Amass
+- Naabu
+- httpx
+
+---
+
+### 🌐 Web Application Testing
+- Nuclei
+- SQLMap
+- Dalfox
+- XSStrike
+- GF
+- qsreplace
+- ffuf
+- unfurl
+
+---
+
+### 🕷 Crawling / URL Discovery
+- Katana
+- hakrawler
+- gau
+- waybackurls
+
+---
+
+### 📁 JavaScript / Endpoint Discovery
+- LinkFinder
+- jsleak
+
+---
+
+### 💣 Exploitation
+- Commix
+- crlfuzz
+- Metasploit Framework *(optional)*
+
+---
+
+### 📚 Wordlists / Payloads
+- SecLists
+- PayloadsAllTheThings *(optional)*
+
+---
+
+## 📸 Installation Screenshots
+
+### Installation Process
 ![Installation Screenshot](screenshots/install.png)
 
 ---
 
- 📝 **Installed Tool List**
+### Installation Completion
 ![Installation Complete Screenshot](screenshots/install2.png)
 
 ---
@@ -55,8 +107,10 @@ sudo ./uninstall.sh
 ```
 
 ---
-## Uninstallation Demo
 
+## 📸 Uninstallation Screenshots
+
+### Uninstallation Process
 ![Uninstallation Screenshot](screenshots/uninstall.png)
 
 ---
