@@ -145,29 +145,38 @@ verify_tool() {
     fi
 }
 
-# APT / Go / Binary tools
+# Recon
 verify_tool "nmap" ""
 verify_tool "masscan" ""
-verify_tool "sqlmap" ""
-verify_tool "nuclei" ""
 verify_tool "subfinder" ""
+verify_tool "amass" ""
 verify_tool "naabu" ""
 verify_tool "httpx" ""
-verify_tool "katana" ""
-verify_tool "gau" ""
-verify_tool "waybackurls" ""
+
+# Web
+verify_tool "nuclei" ""
+verify_tool "sqlmap" ""
 verify_tool "dalfox" ""
+verify_tool "gf" ""
 verify_tool "qsreplace" ""
 verify_tool "ffuf" ""
-verify_tool "amass" ""
+verify_tool "unfurl" ""
 
-# Git-based tools
-verify_tool "XSStrike" "/opt/XSStrike"
+# Crawling
+verify_tool "katana" ""
+verify_tool "hakrawler" "/opt/hakrawler"
+verify_tool "gau" ""
+verify_tool "waybackurls" ""
+
+# JS tools
 verify_tool "LinkFinder" "/opt/LinkFinder"
 verify_tool "jsleak" "/opt/jsleak"
+verify_tool "XSStrike" "/opt/XSStrike"
+
+# Exploitation
 verify_tool "commix" "/opt/commix"
 verify_tool "crlfuzz" "/opt/crlfuzz"
-verify_tool "hakrawler" "/opt/hakrawler"
+verify_tool "msfconsole" ""
 
 # Wordlists
 verify_tool "SecLists" "/opt/SecLists"

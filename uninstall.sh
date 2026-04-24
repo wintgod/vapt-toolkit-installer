@@ -17,7 +17,8 @@ sudo rm -rf \
 # Remove SQLMap symlink
 sudo rm -f \
 /usr/local/bin/sqlmap \
-/usr/local/bin/amass 
+/usr/local/bin/amass \
+/usr/local/bin/unfurl
 
 # Remove Go binaries
 TOOLS=(

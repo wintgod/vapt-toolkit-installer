@@ -6,7 +6,8 @@ run_parallel_limited \
 "go install github.com/hahwul/dalfox/v2@latest" \
 "go install github.com/tomnomnom/qsreplace@latest" \
 "go install github.com/tomnomnom/unfurl@latest" \
-"go install github.com/ffuf/ffuf/v2@latest"
+"go install github.com/ffuf/ffuf/v2@latest" \
+"go install github.com/tomnomnom/gf@latest"
 
 # XSStrike
 if [ ! -d /opt/XSStrike ]; then
@@ -31,4 +32,12 @@ if [ ! -d /opt/jsleak ]; then
     log "${YELLOW}[+] Installing jsleak...${END}"
     git clone https://github.com/channyein1337/jsleak.git /opt/jsleak >> "$LOG_FILE" 2>&1
     INSTALLED+=("jsleak")
+fi
+
+move_go_bins
+
+if [ ! -d ~/.gf ]; then
+    git clone https://github.com/1ndianl33t/Gf-Patterns.git /tmp/gf-patterns >> "$LOG_FILE" 2>&1
+    cp /tmp/gf-patterns/*.json ~/.gf/ >> "$LOG_FILE" 2>&1
+    rm -rf /tmp/gf-patterns
 fi
