@@ -37,6 +37,7 @@ sudo ./install.sh
 ## Installation Demo
 
 ![Installation Screenshot](screenshots/install.png)
+ 📝 **Installed Tool List**
 ![Installation Complete Screenshot](screenshots/install2.png)
 ## 📦 Uninstallation
 
