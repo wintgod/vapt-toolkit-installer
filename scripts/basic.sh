@@ -9,13 +9,13 @@ install_or_skip masscan "apt install -y masscan"
 
 # Parallel
 run_parallel_limited \
-"go install github.com/projectdiscovery/httpx/cmd/httpx@latest"\
+"go install github.com/projectdiscovery/httpx/cmd/httpx@latest" \
 "go install github.com/ffuf/ffuf/v2@latest"
 
 # SQLMap
 if [ ! -d /opt/sqlmap ]; then
     git clone https://github.com/sqlmapproject/sqlmap.git /opt/sqlmap >> $LOG_FILE 2>&1
-    ln -s /opt/sqlmap/sqlmap.py /usr/local/bin/sqlmap
+    ln -sf /opt/sqlmap/sqlmap.py /usr/local/bin/sqlmap
     INSTALLED+=("sqlmap")
 else
     SKIPPED+=("sqlmap")
