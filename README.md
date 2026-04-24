@@ -34,12 +34,19 @@ sudo ./install.sh
 ```
 
 ---
-## Installation Demo
+
+## 📂 Installation Demo
 
 ![Installation Screenshot](screenshots/install.png)
+
+---
+
  📝 **Installed Tool List**
 ![Installation Complete Screenshot](screenshots/install2.png)
-## 📦 Uninstallation
+
+---
+
+## 🧹 Uninstallation
 
 ```bash
 cd vapt-toolkit-installer
@@ -51,6 +58,9 @@ sudo ./uninstall.sh
 ## Uninstallation Demo
 
 ![Uninstallation Screenshot](screenshots/uninstall.png)
+
+---
+
 ## ⚙️ Usage Modes
 
 ### 🔹 Interactive Mode
@@ -73,4 +83,4 @@ sudo ./install.sh --update
 
 ---
 
-## 📂 Installation
+
