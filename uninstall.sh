@@ -15,7 +15,9 @@ sudo rm -rf \
 /opt/PayloadsAllTheThings
 
 # Remove SQLMap symlink
-sudo rm -f /usr/local/bin/sqlmap
+sudo rm -f \
+/usr/local/bin/sqlmap \
+/usr/local/bin/amass 
 
 # Remove Go binaries
 TOOLS=(
@@ -40,7 +42,7 @@ sudo rm -rf /usr/local/go
 rm -rf ~/go
 
 # Remove apt packages
-sudo apt remove --purge -y nmap masscan amass
+sudo apt remove --purge -y nmap masscan 2>/dev/null
 
 # Remove snap packages
 if snap list | grep -q seclists; then

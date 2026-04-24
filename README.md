@@ -34,7 +34,10 @@ sudo ./install.sh
 ```
 
 ---
+## Installation Demo
 
+![Installation Screenshot](screenshots/install.png)
+![Installation Complete Screenshot](screenshots/install2.png)
 ## 📦 Uninstallation
 
 ```bash
@@ -44,7 +47,9 @@ sudo ./uninstall.sh
 ```
 
 ---
+## Uninstallation Demo
 
+![Uninstallation Screenshot](screenshots/uninstall.png)
 ## ⚙️ Usage Modes
 
 ### 🔹 Interactive Mode
